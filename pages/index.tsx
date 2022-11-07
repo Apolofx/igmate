@@ -16,9 +16,14 @@ export default function Home() {
       xfbml: true,
       version: "v15.0",
     });
-    window.FB.getLoginStatus((res: any) => {
-      if (res?.status === "unknown") window.FB.login(console.log);
-    });
+  };
+
+  const login = () => {
+    window.FB.login(console.log);
+  };
+
+  const logout = () => {
+    window.FB.logout(console.log);
   };
 
   useEffect(() => {
@@ -28,6 +33,10 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1>IGMATE</h1>
+
+        <button onClick={login}>Log In</button>
+        <br />
+        <button onClick={logout}>Log Out</button>
       </main>
 
       <footer className={styles.footer}></footer>
